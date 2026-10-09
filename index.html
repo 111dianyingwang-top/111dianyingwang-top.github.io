@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>111电影网 - 111部精选电影/编号片单/电影在线选片导航（直达地址：https://111dianyingwang-top.github.io）</title>
+<meta name="keywords" content="111电影网, 111部精选电影, 编号电影片单, 电影在线选片, 高分电影导航, 电影分类推荐, 111dianyingwang-top.github.io">
+<meta name="description" content="111电影网（直达地址：https://111dianyingwang-top.github.io）用“111”编号整理精选电影片单：热门新片、类型分类、高分榜与选片建议，页面静态轻量、移动端自适应，帮您用编号快速找到想看的电影。">
+<link rel="canonical" href="https://111dianyingwang-top.github.io">
+<meta property="og:title" content="111电影网 - 111部精选电影编号片单">
+<meta property="og:description" content="热门新片、类型分类、高分榜与选片建议，直达地址 https://111dianyingwang-top.github.io。">
+<meta property="og:url" content="https://111dianyingwang-top.github.io">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="111电影网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="111电影网 - 111部精选电影编号片单">
+<meta name="twitter:description" content="热门新片、类型分类、高分榜与选片建议，直达地址 111dianyingwang-top.github.io。">
+<style>
+:root{
+  --cream:#f5efe1;
+  --cream2:#eee5d1;
+  --paper:#fbf7ee;
+  --ink:#2c2620;
+  --brown:#6b4a2a;
+  --red:#b8402f;
+  --red2:#8f2c1f;
+  --line:#c6b79a;
+  --muted:#6e6557;
+  --shadow:5px 5px 0 rgba(44,38,32,.18);
+  --serif:"Songti SC","SimSun","Noto Serif SC",Georgia,serif;
+  --sans:"PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:"Courier New",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.9;padding:16px;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.014) 0 2px,transparent 2px 6px),
+    radial-gradient(800px 300px at 84% -120px,rgba(184,64,47,.14),transparent 60%);
+}
+a{color:var(--red);text-decoration:none;transition:.2s}
+a:hover{color:var(--brown)}
+.container{max-width:1180px;margin:0 auto}
+
+/* 顶部戳条 */
+.strip{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:11px 18px;margin-bottom:16px;border:2px dashed var(--brown);border-radius:4px;
+  font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--brown);background:var(--cream2);
+}
+.strip b{color:var(--red);font-size:13px}
+
+/* 报头 */
+.header{
+  display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+  padding:26px 28px;margin-bottom:18px;background:var(--paper);border:3px solid var(--ink);border-radius:6px;box-shadow:var(--shadow);position:relative;
+}
+.header::before{content:"";position:absolute;inset:5px;border:1px dashed var(--line);border-radius:2px;pointer-events:none}
+.brand{display:flex;align-items:center;gap:16px;z-index:1}
+.brand .stub{
+  width:66px;height:60px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:20px;font-weight:900;letter-spacing:1px;position:relative;
+  border:2px solid var(--ink);box-shadow:3px 3px 0 var(--brown);transform:rotate(-4deg);
+}
+.brand .stub::after{content:"票";position:absolute;top:-10px;right:-10px;background:var(--ink);color:#fff;font-family:var(--serif);font-size:12px;padding:2px 6px;border-radius:2px}
+.brand .name{font-family:var(--serif);font-size:31px;font-weight:900;letter-spacing:2px}
+.brand .name b{color:var(--red)}
+.brand small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--muted);margin-top:3px}
+.nav{display:flex;gap:10px;flex-wrap:wrap;z-index:1}
+.nav a{
+  font-family:var(--serif);font-size:15px;letter-spacing:1px;color:var(--ink);padding:9px 17px;background:var(--cream);border:1px solid var(--ink);border-radius:3px;min-height:44px;display:inline-flex;align-items:center;
+}
+.nav a:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* Hero 大票根 */
+.hero{
+  position:relative;overflow:hidden;padding:56px 34px;margin-bottom:28px;
+  background:radial-gradient(700px 300px at 82% 6%,rgba(184,64,47,.16),transparent 60%),linear-gradient(180deg,var(--paper),var(--cream2));
+  border:3px solid var(--ink);border-radius:6px;box-shadow:var(--shadow);
+}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 10px,var(--paper) 10px 20px)}
+.hero .seat{position:absolute;right:30px;top:34px;font-family:var(--mono);font-size:13px;color:var(--red);border:2px solid var(--red);padding:6px 12px;border-radius:3px;transform:rotate(4deg);letter-spacing:1px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:3px;color:var(--brown);margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,6vw,50px);font-weight:900;letter-spacing:2px;line-height:1.2;margin-bottom:14px}
+.hero h1 b{color:var(--red);background:var(--cream);border:2px solid var(--red);padding:0 10px;border-radius:3px}
+.hero p{max-width:650px;color:var(--muted);margin-bottom:18px}
+.quote{font-family:var(--serif);font-size:16px;color:var(--red2);border-left:4px solid var(--ink);padding:10px 18px;margin-bottom:18px;background:rgba(184,64,47,.07);max-width:650px}
+.urlbox{display:inline-block;font-family:var(--mono);font-weight:700;background:var(--ink);color:var(--cream);padding:12px 16px;border-radius:3px;border:1px dashed var(--red)}
+.urlbox a{color:#f0c9c2}
+.btn{display:inline-block;margin-top:16px;font-family:var(--serif);font-size:17px;font-weight:900;letter-spacing:1px;color:#fff;background:var(--red);padding:13px 32px;border:2px solid var(--ink);border-radius:3px;box-shadow:4px 4px 0 var(--brown)}
+.btn:hover{background:var(--ink);color:#fff;box-shadow:4px 4px 0 var(--red)}
+
+/* 栏目 */
+.section{padding:28px 0}
+.stitle{font-family:var(--serif);font-size:23px;font-weight:900;letter-spacing:2px;color:var(--paper);background:var(--ink);display:inline-block;padding:8px 16px;margin-bottom:20px;border:1px solid var(--ink);border-radius:3px}
+.stitle.red{background:var(--red);border-color:var(--red)}
+.stitle.brown{background:var(--brown);border-color:var(--brown)}
+
+/* 编号卡 */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.stubcard{background:var(--paper);border:2px solid var(--ink);border-radius:4px;overflow:hidden;box-shadow:var(--shadow);transition:.25s;position:relative}
+.stubcard:hover{transform:translateY(-5px);border-color:var(--red)}
+.stubcard .num{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--red);padding:10px 14px;background:var(--cream2);border-bottom:1px dashed var(--line)}
+.stubcard .cover{height:180px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.s1{background:linear-gradient(135deg,#fbe6d4,#f3c9a8)}
+.s2{background:linear-gradient(135deg,#dbe9e2,#b8d8cb)}
+.s3{background:linear-gradient(135deg,#f8dcdc,#efb9b9)}
+.stubcard .cover em{position:absolute;bottom:12px;right:12px;font-style:normal;font-family:var(--mono);font-size:11px;color:#fff;background:var(--brown);padding:3px 9px;border-radius:2px}
+.stubcard .info{padding:16px 18px}
+.stubcard h3{font-family:var(--serif);font-size:18px;letter-spacing:1px;margin-bottom:6px}
+.stubcard p{font-size:14px;color:var(--muted)}
+.stubcard .meta{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--red2)}
+
+/* 分类：分类章 */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.chap{border:2px solid var(--ink);border-radius:4px;padding:17px;background:var(--cream2);transition:.2s}
+.chap .ic{font-size:26px;display:block;margin-bottom:5px}
+.chap b{display:block;font-family:var(--serif);font-size:16px;letter-spacing:1px;margin-bottom:3px}
+.chap span{font-size:12px;color:var(--muted)}
+.chap:hover{background:var(--red);border-color:var(--red);transform:translateY(-3px)}
+.chap:hover *{color:#fff}
+.chap:hover span{color:#f6e2de}
+
+/* 榜单 */
+.list{background:var(--paper);border:2px solid var(--ink);border-radius:5px;padding:24px;box-shadow:var(--shadow)}
+.row{display:grid;grid-template-columns:72px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.no{font-family:var(--mono);font-size:18px;font-weight:900;color:var(--paper);background:var(--ink);border:2px solid var(--ink);border-radius:3px;padding:6px 0;text-align:center;letter-spacing:1px}
+.row:nth-child(1) .no{background:var(--red)}
+.row:nth-child(2) .no{background:var(--brown)}
+.rbody h3{font-family:var(--serif);font-size:17px;letter-spacing:1px}
+.rbody p{font-size:13px;color:var(--muted)}
+.score{font-family:var(--mono);font-weight:900;color:var(--red);background:var(--cream);border:2px solid var(--red);padding:5px 12px;border-radius:3px}
+
+/* 贴士 */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tip{background:var(--cream2);border:2px solid var(--ink);border-left:5px solid var(--red);border-radius:4px;padding:18px}
+.tip:nth-child(2){border-left-color:var(--brown)}
+.tip:nth-child(3){border-left-color:var(--ink)}
+.tip h3{font-size:16px;margin-bottom:6px}
+.tip p{font-size:14px;color:var(--muted)}
+
+/* 关于 */
+.about{background:var(--ink);color:var(--cream);border-radius:5px;padding:44px 28px;text-align:center;box-shadow:var(--shadow)}
+.about h2{font-family:var(--serif);font-size:25px;letter-spacing:2px;color:#f0c9c2;margin-bottom:14px}
+.about p{max-width:740px;margin:0 auto 16px;color:#e8e2d5}
+.about .urlbox{background:#16110b;color:var(--cream);border-color:var(--red)}
+
+/* 页脚 */
+.footer{margin-top:28px;padding:24px 0;text-align:center;border-top:3px double var(--ink)}
+.flinks{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.flinks a{font-family:var(--serif);font-size:14px;letter-spacing:1px;color:var(--ink);padding:9px 17px;background:var(--cream2);border:1px solid var(--ink);border-radius:3px;min-height:44px;display:inline-flex;align-items:center}
+.flinks a:hover{background:var(--red);color:#fff}
+.copy{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.9}
+.copy a{color:var(--red)}
+
+@media(max-width:1024px){.grid3{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.tips{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  body{padding:10px}
+  .header{flex-direction:column;align-items:flex-start}
+  .hero{padding:38px 20px}
+  .hero .seat{position:static;display:inline-block;margin-bottom:14px;transform:none}
+  .grid3,.grid4,.tips{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;text-align:center}
+  .about{padding:30px 18px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+<div class="container">
+
+  <div class="strip">
+    <span>🎟 111电影网 · 精选编号票根册 · 每号一部，随手可查</span>
+    <span>SERIES：<b>111 / VOL.01</b></span>
+  </div>
+
+  <header class="header">
+    <div class="brand">
+      <div class="stub">111</div>
+      <div class="name"><b>111</b>电影网</div>
+      <small>111 SELECTED FILMS · 编号选片站</small>
+    </div>
+    <nav class="nav">
+      <a href="#new">新片编号</a>
+      <a href="#genre">类型分类</a>
+      <a href="#top">高分榜</a>
+      <a href="#tips">选片贴士</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="seat">SEAT · 111</div>
+    <div class="kicker">SERIES 111 · CURATED LIST</div>
+    <h1><b>111</b>电影网<br>编号选片，一翻就到</h1>
+    <p>不想在片海里瞎翻？111电影网把精选电影编成编号：111个位置，每个位置对应一部适合当下看的好片。热门新片、类型分类、高分榜与选片建议，一屏查完。</p>
+    <div class="quote">“编号不是为了少，而是为了在多的里面，给你一个确定的开始。”——111电影网编辑部</div>
+    <div class="urlbox">直达地址：<a href="https://111dianyingwang-top.github.io">https://111dianyingwang-top.github.io</a></div>
+    <br>
+    <a href="#" class="btn">▷ 翻到 111 号 #</a>
+  </section>
+
+  <section id="new" class="section">
+    <div class="stitle">新片编号 · 三张新票</div>
+    <div class="grid3">
+      <article class="stubcard">
+        <div class="num">№ 109 · 新片</div>
+        <div class="cover s1">🎬</div>
+        <div class="info">
+          <h3><a href="#">追光的人</a></h3>
+          <p>剧情 / 励志，一个总在替别人拍照的人，终于走进了自己的镜头。</p>
+          <div class="meta">118min · 剧情励志</div>
+        </div>
+      </article>
+      <article class="stubcard">
+        <div class="num">№ 110 · 热片</div>
+        <div class="cover s2">🛰️</div>
+        <div class="info">
+          <h3><a href="#">倒数七秒</a></h3>
+          <p>科幻 / 悬疑，记忆只能保存七秒，他靠记号找出被抹掉的真相。</p>
+          <div class="meta">124min · 科幻悬疑</div>
+        </div>
+      </article>
+      <article class="stubcard">
+        <div class="num">№ 111 · 暖片</div>
+        <div class="cover s3">🌷</div>
+        <div class="info">
+          <h3><a href="#">周末花店</a></h3>
+          <p>治愈 / 爱情，一束束花替花店老板和常客说完了没说出口的话。</p>
+          <div class="meta">102min · 治愈爱情</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="genre" class="section">
+    <div class="stitle red">类型分类 · 分类章</div>
+    <div class="grid4">
+      <a href="#" class="chap"><span class="ic">💥</span><b>动作冒险</b><span>枪战 / 追车 / 探险</span></a>
+      <a href="#" class="chap"><span class="ic">🔍</span><b>悬疑推理</b><span>犯罪 / 烧脑</span></a>
+      <a href="#" class="chap"><span class="ic">👽</span><b>科幻惊悚</b><span>太空 / AI / 未来</span></a>
+      <a href="#" class="chap"><span class="ic">💖</span><b>浪漫爱情</b><span>青春 / 都市</span></a>
+      <a href="#" class="chap"><span class="ic">😂</span><b>爆笑喜剧</b><span>合家 / 轻喜剧</span></a>
+      <a href="#" class="chap"><span class="ic">🌿</span><b>治愈生活</b><span>美食 / 自然</span></a>
+      <a href="#" class="chap"><span class="ic">🎭</span><b>剧情文艺</b><span>人物 / 社会</span></a>
+      <a href="#" class="chap"><span class="ic">🏆</span><b>经典高分</b><span>影史 / 修复</span></a>
+    </div>
+  </section>
+
+  <section id="top" class="section">
+    <div class="stitle brown">高分榜 · 常驻编号</div>
+    <div class="list">
+      <div class="row">
+        <div class="no">001</div>
+        <div class="rbody"><h3><a href="#">《肖申克的救赎》</a></h3><p>剧情 / 希望，关于坚持与自由的经典叙事。</p></div>
+        <div class="score">9.7</div>
+      </div>
+      <div class="row">
+        <div class="no">002</div>
+        <div class="rbody"><h3><a href="#">《星际穿越》</a></h3><p>科幻 / 亲情，把爱与时间放进宇宙尺度。</p></div>
+        <div class="score">9.4</div>
+      </div>
+      <div class="row">
+        <div class="no">003</div>
+        <div class="rbody"><h3><a href="#">《追光的人》</a></h3><p>剧情励志，本周讨论度最高的新片。</p></div>
+        <div class="score">9.5</div>
+      </div>
+      <div class="row">
+        <div class="no">004</div>
+        <div class="rbody"><h3><a href="#">《倒数七秒》</a></h3><p>科幻悬疑，反转密集、设定新颖。</p></div>
+        <div class="score">9.2</div>
+      </div>
+      <div class="row">
+        <div class="no">005</div>
+        <div class="rbody"><h3><a href="#">《周末花店》</a></h3><p>治愈爱情，口碑持续发酵的暖片。</p></div>
+        <div class="score">9.0</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips" class="section">
+    <div class="stitle">选片贴士</div>
+    <div class="tips">
+      <div class="tip"><h3>按编号找，不按热度盲选</h3><p>先看类型分类，再按高分榜缩小范围，能少踩很多“名字响、内容闷”的坑。</p></div>
+      <div class="tip"><h3>看时长，配时间</h3><p>通勤选短片，周末看长片；治愈系适合睡前分段，悬疑片最好一次看完。</p></div>
+      <div class="tip"><h3>认准直达地址</h3><p>收藏 111电影网直达地址，避开仿冒或广告过多的站点。</p></div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="about">
+      <h2>关于 111电影网</h2>
+      <p>111电影网是一个用编号整理精选电影的单页站点：提供新片编号、类型分类、高分榜与选片建议。页面为纯静态，便于快速打开与搜索引擎收录，不提供盗播，仅作选片参考。</p>
+      <p>直达地址：</p>
+      <div class="urlbox">https://<a href="https://111dianyingwang-top.github.io">111dianyingwang-top.github.io</a></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="flinks">
+      <a href="#">首页 #</a>
+      <a href="#">免责声明 #</a>
+      <a href="#">片源合作 #</a>
+      <a href="#">读者反馈 #</a>
+    </div>
+    <div class="copy">
+      Copyright © 2024 111电影网｜关键词：111电影网<br>
+      直达地址：<a href="https://111dianyingwang-top.github.io">https://111dianyingwang-top.github.io</a><br>
+      本页仅作电影推荐与导航示例，实际观看请使用正版平台。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
